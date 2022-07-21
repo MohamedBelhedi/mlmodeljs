@@ -8,7 +8,12 @@ import * as tf from '@tensorflow/tfjs'
 class App extends Component {
   constructor(props){
     super(props)
+this.state={
 
+
+  text:"Welcome to Tensorflow Modeltrainer "
+
+}
 
   }
  predictFunction=async()=>{
@@ -31,7 +36,7 @@ await model.fit(xs,ys,{epochs:epochs})
 
 const inputtest=document.querySelector(".input1").value;
 const output=document.querySelector("h2")
-const output_ext=await Number(inputtest)
+const output_ext=await Number(inputtest) //immer als nummer umwandeln sonst läuft das nicht
 output.innerText=model.predict(tf.tensor2d([output_ext],[1,1]));
 
 
@@ -46,6 +51,8 @@ componentDidMount(){
   // this.keyTest()
 
 
+
+
 }
   render(){
 
@@ -55,7 +62,7 @@ componentDidMount(){
 
     <>
     <div className="App">
-      <h1>Predict Model Machinlearning with JS</h1>
+      <h1>{this.state.text}Predict Model Machinlearning with JS</h1>
       <h2></h2>
 <div>
 {
